@@ -1,2 +1,2 @@
 node_modules
-firebase.config.js
+src/lib/firebase.js

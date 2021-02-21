@@ -554,12 +554,22 @@ var _reactDom = __webpack_require__(5);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _firebase = __webpack_require__(17);
+
+var _firebase2 = __webpack_require__(18);
+
+var _firebase3 = _interopRequireDefault(_firebase2);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom2.default.render(_react2.default.createElement(
-  'h1',
-  null,
-  'Hello, World'
+  _firebase3.default.Provider,
+  { value: { firebase: _firebase.firebase, FieldValue: _firebase.FieldValue } },
+  _react2.default.createElement(
+    'h1',
+    null,
+    'Hello, World'
+  )
 ), document.getElementById('root'));
 
 /***/ }),
@@ -29134,6 +29144,46 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var firebaseConfig = {
+  apiKey: 'AIzaSyBgL-dJb6vs49AtiI7by8Gngpnx_aB-kBw',
+  authDomain: 'instagram-clone-a5c27.firebaseapp.com',
+  projectId: 'instagram-clone-a5c27',
+  storageBucket: 'instagram-clone-a5c27.appspot.com',
+  messagingSenderId: '799884540560',
+  appId: '1:799884540560:web:0add061544bcd5d45b3615'
+};
+
+var firebase = window.firebase.initializeApp(firebaseConfig);
+var FieldValue = window.firebase.firestore;
+exports.firebase = firebase;
+exports.FieldValue = FieldValue;
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(2);
+
+var FirebaseContext = (0, _react.createContext)(null);
+exports.default = FirebaseContext;
 
 /***/ })
 /******/ ]);
