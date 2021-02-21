@@ -1,5 +1,10 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 import * as ROUTES from './constants/routes';
 
 const Login = lazy(() => import('./pages/Login'));
@@ -18,6 +23,9 @@ function App() {
           <Route path={ROUTES.PROFILE} component={Profile} />
           <Route path={ROUTES.NOTFOUND} component={NotFound} />
           <Route path={ROUTES.DASHBOARD} component={Dashboard} exact />
+          <Route path='*'>
+            <Redirect to='/not-found' />
+          </Route>
         </Switch>
       </Suspense>
     </Router>
