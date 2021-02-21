@@ -7,7 +7,12 @@ function Dashboard() {
   // update title
   useEffect(() => (document.title = 'Dashboard - Instagram'), []);
 
-  return <Header />;
+  return (
+    <>
+      <Header />
+      <Sidebar />
+    </>
+  );
 }
 
 export default Dashboard;
