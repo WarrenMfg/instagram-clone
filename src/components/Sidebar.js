@@ -2,9 +2,9 @@ import React from 'react';
 import useUser from '../hooks/useUser';
 
 function Sidebar() {
-  const user = useUser();
+  const { docId, userId, following, username, fullName } = useUser();
 
-  return <div>{user.username}</div>;
+  return <div>{username}</div>;
 }
 
 export default Sidebar;

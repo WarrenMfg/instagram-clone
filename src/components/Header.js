@@ -6,13 +6,11 @@ import UserContext from '../context/user';
 
 import logo from '../../images/logo.png';
 import dali from '../../images/avatars/dali.jpg';
-import karl from '../../images/avatars/karl.jpg';
 import orwell from '../../images/avatars/orwell.jpg';
 import raphael from '../../images/avatars/raphael.jpg';
 import warrenmfg from '../../images/avatars/warrenmfg.jpg';
 const avatars = {
   dali,
-  karl,
   orwell,
   raphael,
   warrenmfg
