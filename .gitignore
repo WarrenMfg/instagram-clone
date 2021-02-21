@@ -1,2 +1,4 @@
 node_modules
 src/lib/firebase.js
+.cache
+dist
