@@ -1,20 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { DASHBOARD, LOGIN, SIGNUP } from '../constants/routes';
 import FirebaseContext from '../context/firebase';
 import UserContext from '../context/user';
 
 import logo from '../../images/logo.png';
-import dali from '../../images/avatars/dali.jpg';
-import orwell from '../../images/avatars/orwell.jpg';
-import raphael from '../../images/avatars/raphael.jpg';
-import warrenmfg from '../../images/avatars/warrenmfg.jpg';
-const avatars = {
-  dali,
-  orwell,
-  raphael,
-  warrenmfg
-};
+import avatars from '../../images/avatars/*.jpg';
 
 function Header() {
   // get context
