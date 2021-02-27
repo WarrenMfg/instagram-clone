@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { DASHBOARD, LOGIN, SIGNUP } from '../constants/routes';
 import FirebaseContext from '../context/firebase';
