@@ -9,18 +9,22 @@ function Actions({ docId, totalLikes, likedPhoto, handleFocus }) {
   const { user } = useContext(UserContext);
 
   const handleToggleLiked = async () => {
-    await firebase
-      .firestore()
-      .collection('photos')
-      .doc(docId)
-      .update({
-        likes: toggleLiked
-          ? FieldValue.arrayRemove(user.uid)
-          : FieldValue.arrayUnion(user.uid)
-      });
+    try {
+      await firebase
+        .firestore()
+        .collection('photos')
+        .doc(docId)
+        .update({
+          likes: toggleLiked
+            ? FieldValue.arrayRemove(user.uid)
+            : FieldValue.arrayUnion(user.uid)
+        });
 
-    setToggleLiked(toggleLiked => !toggleLiked);
-    setLikes(likes => (toggleLiked ? likes - 1 : likes + 1));
+      setToggleLiked(toggleLiked => !toggleLiked);
+      setLikes(likes => (toggleLiked ? likes - 1 : likes + 1));
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

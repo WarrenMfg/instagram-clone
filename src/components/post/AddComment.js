@@ -10,20 +10,24 @@ function AddComment({ docId, comments, setComments, commentInputRef }) {
   const handleSubmitComment = async e => {
     e.preventDefault();
 
-    setComment('');
+    try {
+      setComment('');
 
-    await firebase
-      .firestore()
-      .collection('photos')
-      .doc(docId)
-      .update({
-        comments: FieldValue.arrayUnion({
-          displayName: user.displayName,
-          comment
-        })
-      });
+      await firebase
+        .firestore()
+        .collection('photos')
+        .doc(docId)
+        .update({
+          comments: FieldValue.arrayUnion({
+            displayName: user.displayName,
+            comment
+          })
+        });
 
-    setComments([{ displayName: user.displayName, comment }, ...comments]);
+      setComments([{ displayName: user.displayName, comment }, ...comments]);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
