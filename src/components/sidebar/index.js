@@ -4,7 +4,7 @@ import User from './User';
 import Suggestions from './Suggestions';
 
 function Sidebar() {
-  const { docId, userId, following, username, fullName } = useUser();
+  const [{ docId, userId, following, username, fullName }] = useUser();
 
   return (
     <div className='p-4'>

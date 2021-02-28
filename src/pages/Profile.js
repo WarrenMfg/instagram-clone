@@ -10,6 +10,7 @@ function Profile() {
   const [userExists, setUserExists] = useState(false);
   const history = useHistory();
 
+  useEffect(() => (document.title = `${username} - Instagram`), [username]);
   useEffect(() => {
     async function checkUserExistsToLoadProfile() {
       const doesUserExist = await getUserByUsername(username);

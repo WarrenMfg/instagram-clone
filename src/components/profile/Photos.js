@@ -3,8 +3,7 @@ import Skeleton from 'react-loading-skeleton';
 import raphael from '../../../images/users/raphael/*.jpg';
 
 function Photos({ user, photos }) {
-  const photoFiles =
-    photos?.map(photo => photo.imageSrc.split('/').pop().split('.')[0]) || [];
+  const photoFiles = photos?.map(photo => photo.photoId) || [];
 
   return (
     <div className='h-16 border-t border-gray mt-12 pt-4'>
@@ -18,7 +17,7 @@ function Photos({ user, photos }) {
         ) : photos.length > 0 ? (
           photos.map((photo, i) => (
             <div key={photo.docId} className='relative group'>
-              <img src={raphael[photoFiles[i]]} alt={photo.caption} />
+              <img src={raphael[photoFiles[i]] || ''} alt={photo.caption} />
             </div>
           ))
         ) : null}

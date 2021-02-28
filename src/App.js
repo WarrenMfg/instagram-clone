@@ -4,6 +4,9 @@ import * as ROUTES from './constants/routes';
 import UserContext from './context/user';
 import useAuth from './hooks/useAuth';
 
+import IsUserLoggedIn from './utils/IsUserLoggedIn';
+import ProtectedRoute from './utils/ProtectedRoute';
+
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
@@ -18,11 +21,28 @@ function App() {
       <Router>
         <Suspense fallback={<p>Loading...</p>}>
           <Switch>
-            <Route path={ROUTES.LOGIN} component={Login} />
+            <IsUserLoggedIn
+              user={user}
+              path={ROUTES.LOGIN}
+              component={Login}
+              redirect={ROUTES.DASHBOARD}
+            />
+            <IsUserLoggedIn
+              user={user}
+              path={ROUTES.SIGNUP}
+              component={Signup}
+              redirect={ROUTES.DASHBOARD}
+            />
             <Route path={ROUTES.SIGNUP} component={Signup} />
             <Route path={ROUTES.PROFILE} component={Profile} />
             <Route path={ROUTES.NOTFOUND} component={NotFound} />
-            <Route path={ROUTES.DASHBOARD} component={Dashboard} exact />
+            <ProtectedRoute
+              user={user}
+              path={ROUTES.DASHBOARD}
+              component={Dashboard}
+              redirect={ROUTES.LOGIN}
+              exact
+            />
             <Route component={NotFound} />
           </Switch>
         </Suspense>
