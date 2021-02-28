@@ -4,11 +4,11 @@ import * as ROUTES from './constants/routes';
 import UserContext from './context/user';
 import useAuth from './hooks/useAuth';
 
-const Login = lazy(() => import('./pages/Login'));
-const Signup = lazy(() => import('./pages/Signup'));
-const Profile = lazy(() => import('./pages/Profile'));
-const NotFound = lazy(() => import('./pages/NotFound'));
-const Dashboard = lazy(() => import('./pages/Dashboard'));
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   const user = useAuth();

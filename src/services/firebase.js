@@ -96,3 +96,33 @@ async function updateFollowers(docId, followerId, isAlreadyFollowing) {
         : FieldValue.arrayUnion(followerId)
     });
 }
+
+export async function getUserByUsername(username) {
+  const result = await firebase
+    .firestore()
+    .collection('users')
+    .where('username', '==', username)
+    .get();
+
+  const user = result.docs.map(item => ({
+    ...item.data(),
+    docId: item.id
+  }));
+
+  return user.length > 0 ? user[0] : false;
+}
+
+export async function getUserPhotosByUserId(userId) {
+  const result = await firebase
+    .firestore()
+    .collection('photos')
+    .where('userId', '==', userId)
+    .get();
+
+  const photos = result.docs.map(item => ({
+    ...item.data(),
+    docId: item.id
+  }));
+
+  return photos;
+}
