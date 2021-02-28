@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Header({
-  photosCollection,
-  profile,
-  followerCount,
-  setFollowerCount
-}) {
+function Header({ photosCount, profile, followerCount, setFollowerCount }) {
   return <div>Header</div>;
 }
 

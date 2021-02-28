@@ -119,10 +119,11 @@ export async function getUserPhotosByUserId(userId) {
     .where('userId', '==', userId)
     .get();
 
-  const photos = result.docs.map(item => ({
-    ...item.data(),
-    docId: item.id
-  }));
+  const photos =
+    result?.docs.map(item => ({
+      ...item.data(),
+      docId: item.id
+    })) || [];
 
   return photos;
 }
